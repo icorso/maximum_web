@@ -15,7 +15,7 @@ def driver():
 
 
 @pytest.fixture
-def pages():
+def pages(driver):
     pages = make_dataclass("pages", [])
     pages.login = LoginPage()
     pages.main = MainPage()

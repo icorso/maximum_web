@@ -30,10 +30,19 @@ class LoginPage(HtmlPage):
     def error_message(self):
         return self.find_element(By.CLASS_NAME, 'alert.alert-danger.text-center')
 
-    @allure.step("В")
+    @allure.step("Авторизует пользователя {username} / {password}")
     def authorize(self, username=settings.username, password=settings.password):
         self.login_field.clear()
         self.login_field.send_keys(username)
         self.password_field.clear()
         self.password_field.send_keys(password)
         self.submit.click()
+
+    @allure.step("Название страницы соответствует {header}")
+    def has_header(self, header: str):
+        assert self.header.text == header, "Заголовок страницы не соответствует ожидаемому"
+
+    @allure.step("Текст ошибки авторизации содержит {error_text}")
+    def has_auth_error(self, error_text: str):
+        assert error_text in self.error_message.text, "Некорректное сообщение об ошибке"
+

@@ -1,0 +1,12 @@
+============================= test session starts ==============================
+collected 4 items
+
+tests/test_login.py ....                                                 [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_login.py::test_login_page_open
+PASSED tests/test_login.py::test_incorrect_login_attempt
+PASSED tests/test_login.py::test_successful_login
+PASSED tests/test_login.py::test_successful_logoff
+======================== 4 passed in 186.05s (0:03:06) =========================
